@@ -8,8 +8,8 @@ task("accounts", "Get all accounts").setAction(async (taskArgs, hre) => {
 })
 
 async function printAccountDetails(account) {
-    console.log(`Account Address ${account.address}`)
-    console.log(`Account Balance ${await account.getBalance()}\n`)
+    console.log(`Account Address : ${account.address}`)
+    console.log(`Account Balance : ${await account.getBalance()}\n`)
 }
 
 module.exports = {}

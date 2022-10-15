@@ -1,12 +1,14 @@
-const { ethers, run, network } = require("hardhat")
-require("dotenv").config()
+import { ethers, run, network } from "hardhat"
+import "dotenv/config"
+import { SimpleStorage } from "../typechain-types/SimpleStorage"
+import { SimpleStorage__factory } from "../typechain-types/factories/SimpleStorage__factory"
 
 async function main() {
-    const SimpleStorageFactory = await ethers.getContractFactory(
+    const SimpleStorageFactory = (await ethers.getContractFactory(
         "SimpleStorage"
-    )
+    )) as SimpleStorage__factory
     console.log("Deploying...")
-    const simpleStorage = await SimpleStorageFactory.deploy()
+    const simpleStorage = (await SimpleStorageFactory.deploy()) as SimpleStorage
     await simpleStorage.deployed()
     console.log(`Address : ${simpleStorage.address}`)
     if (network.config.chainId === 5 && process.env.ETHERSCAN_API_KEY) {

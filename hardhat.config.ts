@@ -1,9 +1,9 @@
-require("@nomicfoundation/hardhat-toolbox")
-require("dotenv").config()
-require("./tasks/block")
-require("./tasks/accounts")
-require("hardhat-gas-reporter")
-require("solidity-coverage")
+import "@nomicfoundation/hardhat-toolbox"
+import "dotenv/config"
+import "./tasks/block"
+import "./tasks/accounts"
+import "hardhat-gas-reporter"
+import "solidity-coverage"
 
 const LOCALHOST_RPC_URL = process.env.LOCALHOST_RPC_URL
 const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL
